@@ -18,7 +18,7 @@ env:
   owner: onurkanbakirci
   repo: tesodev.case
   context: .
-  docker_file_path: src/Services/Customer/Dockerfile/Tesodev.Case.Customer.API
+  docker_file_path: src/Services/Customer/Tesodev.Case.Customer.API/Dockerfile
   push: true
   docker_image_tag: ghcr.io/onurkanbakirci/tesodev.case/customer-api:1.0.0
 
