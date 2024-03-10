@@ -14,6 +14,11 @@ on:
       - .github/workflows/composite/**
 
 env:
+  dotnet_version: 8.x
+
+  #For test process
+  test_project_path: tests/Tesodev.Case.Order.UnitTests/
+
   #For docker build process
   owner: onurkanbakirci
   repo: tesodev.case
@@ -31,9 +36,30 @@ env:
   helm_chart_src_path: deploy/k8s/helm
 
 jobs:
+  test:
+    name: Test Api
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup .NET Core
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: ${{ env.dotnet_version }}
+
+      - name: Run Tests
+        run: |
+          cd ${{env.test_project_path}}
+          dotnet restore
+          dotnet build --configuration Release --no-restore
+          dotnet test --no-restore --verbosity normal
+
   build-docker-image:
     name: Build Docker Image
     runs-on: ubuntu-latest
+    needs: test
 
     steps:
       - name: Checkout code
@@ -48,19 +74,10 @@ jobs:
           actor: ${{github.actor}}
           token: ${{secrets.GITHUB_TOKEN}}
 
-  test:
-    name: Test App Api
-    runs-on: ubuntu-latest
-    needs: build-docker-image
-
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
   build-helm-chart:
     name: Build App Api Helm Chart
     runs-on: ubuntu-latest
-    needs: test
+    needs: build-docker-image
 
     steps:
       - name: Checkout code
