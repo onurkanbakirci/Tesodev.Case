@@ -11,7 +11,7 @@ COPY "src/Services/Customer/Tesodev.Case.Customer.Application/Tesodev.Case.Custo
 COPY "src/Services/Customer/Tesodev.Case.Customer.Domain/Tesodev.Case.Customer.Domain.csproj" "Services/Customer/Tesodev.Case.Customer.Domain/Tesodev.Case.Customer.Domain.csproj"
 COPY "src/Services/Customer/Tesodev.Case.Customer.Infrastructure/Tesodev.Case.Customer.Infrastructure.csproj" "Services/Customer/Tesodev.Case.Customer.Infrastructure/Tesodev.Case.Customer.Infrastructure.csproj"
 
-RUN dotnet restore "Services/Customer/Tesodev.Case.Customer.API/Tesodev.Customer.API.csproj"
+RUN dotnet restore "Services/Customer/Tesodev.Case.Customer.API/Tesodev.Case.Customer.API.csproj"
 
 COPY . ./
 
