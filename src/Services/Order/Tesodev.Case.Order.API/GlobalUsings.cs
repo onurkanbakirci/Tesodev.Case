@@ -1,0 +1,9 @@
+global using Autofac;
+global using Autofac.Extensions.DependencyInjection;
+global using Microsoft.AspNetCore.Mvc.Versioning;
+global using Microsoft.AspNetCore.Mvc;
+global using System.Reflection;
+global using Microsoft.OpenApi.Models;
+global using Tesodev.Case.Order.Application.DependencyResolvers; 
+global using Tesodev.Case.Order.Infrastructure.Utilities.IoC;
+global using Tesodev.Case.Order.API.Extensions;

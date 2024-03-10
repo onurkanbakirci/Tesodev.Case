@@ -1,0 +1,6 @@
+@Tesodev.Case.Order.API_HostAddress = http://localhost:5268
+
+GET {{Tesodev.Case.Order.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

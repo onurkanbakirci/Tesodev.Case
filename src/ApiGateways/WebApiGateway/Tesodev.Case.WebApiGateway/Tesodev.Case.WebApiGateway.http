@@ -1,0 +1,6 @@
+@Tesodev.Case.WebApiGateway_HostAddress = http://localhost:5266
+
+GET {{Tesodev.Case.WebApiGateway_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
