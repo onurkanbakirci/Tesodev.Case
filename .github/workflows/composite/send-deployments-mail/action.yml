@@ -1,0 +1,74 @@
+name: "Send mail"
+description: "Send deployment files as mail"
+
+inputs:
+  server_address:
+    description: "Server address"
+    required: true
+  server_port:
+    description: "Server address"
+    required: false
+    default: "465"
+  secure:
+    description: "Optional whether this connection use TLS (default is true if server_port is 465)"
+    required: false
+    default: "false"
+  username:
+    description: "Email owner username"
+    required: true
+  password:
+    description: "Email owner password"
+    required: true
+  subject:
+    description: "Subject of email"
+    required: true
+  recepients:
+    description: "Recepients of email"
+    required: true
+  from:
+    description: "Sender of email"
+    required: true
+  android_app_artifact_name:
+    description: "Name of android artifact"
+    required: true
+  android_management_app_artifact_name:
+    description: "Name of android management artifact"
+    required: true
+
+runs:
+  using: "composite"
+  steps:
+    - uses: actions/checkout@master
+      with:
+        ref: feature/github-actions
+
+    - name: Create deployment paths
+      shell: bash
+      run: |
+        mkdir android-deployments
+
+    - name: Download artifact
+      uses: actions/download-artifact@v2
+      with:
+        name: ${{inputs.android_app_artifact_name}}
+        path: android-deployments/
+    
+    - name: Download artifact
+      uses: actions/download-artifact@v2
+      with:
+        name: ${{inputs.android_management_app_artifact_name}}
+        path: android-deployments/
+
+    - name: Send mail
+      uses: dawidd6/action-send-mail@v3
+      with:
+        server_address: ${{inputs.server_address}}
+        server_port: ${{inputs.server_port}}
+        secure: ${{inputs.secure}}
+        username: ${{inputs.username}}
+        password: ${{inputs.password}}
+        subject: ${{inputs.subject}}
+        to: ${{inputs.recepients}}
+        from: ${{inputs.from}}
+        body: ${{inputs.body}}
+        attachments: android-deployments/*.apk

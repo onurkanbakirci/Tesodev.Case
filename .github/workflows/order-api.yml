@@ -1,0 +1,79 @@
+name: Order Api
+
+on:
+  workflow_dispatch:
+  workflow_call:
+  push:
+    branches:
+      - main
+
+    paths:
+      - src/Services/Order/**
+      - deploy/k8s/helm/order-api-chart/**
+      - .github/workflows/order-api.yml
+      - .github/workflows/composite/**
+
+env:
+  #For docker build process
+  owner: onurkanbakirci
+  repo: tesodev.case
+  context: .
+  docker_file_path: src/Services/Order/Dockerfile/Tesodev.Case.Order.API
+  push: true
+  docker_image_tag: ghcr.io/onurkanbakirci/tesodev.case/order-api:1.0.0
+
+  #For helm chart build process
+  helm_chart_repo: https://raw.githubusercontent.com/onurkanbakirci/tesodevCharts/main/
+  helm_chart_name: order-api-chart
+  helm_chart_dest_repo: tesodevCharts
+  helm_chart_dest_path: charts
+  helm_chart_dest_index_file_path: .
+  helm_chart_src_path: deploy/k8s/helm
+
+jobs:
+  build-docker-image:
+    name: Build Docker Image
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - uses: ./.github/workflows/composite/deploy-docker
+        with:
+          context: ${{ env.context }}
+          tags: ${{env.docker_image_tag}}
+          file: ${{ env.docker_file_path }}
+          push: ${{ env.push }}
+          actor: ${{github.actor}}
+          token: ${{secrets.GITHUB_TOKEN}}
+
+  test:
+    name: Test App Api
+    runs-on: ubuntu-latest
+    needs: build-docker-image
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+  build-helm-chart:
+    name: Build App Api Helm Chart
+    runs-on: ubuntu-latest
+    needs: test
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Build chart
+        uses: ./.github/workflows/composite/deploy-helm
+        with:
+          chart: ${{env.helm_chart_name}}
+          repo: ${{env.helm_chart_dest_repo}}
+          owner: ${{env.owner}}
+          target_dir: ${{env.helm_chart_dest_path}}
+          index_dir: ${{env.helm_chart_dest_index_file_path}}
+          charts_url: ${{env.helm_chart_repo}}
+          charts_directory: ${{env.helm_chart_src_path}}
+          token: ${{secrets.HISIM_CHART_REPO_TOKEN}}

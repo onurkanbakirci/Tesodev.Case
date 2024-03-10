@@ -1,0 +1,60 @@
+name: "Create Release"
+
+on:
+  push:
+    tags:
+      - "v*"
+
+env:
+  #For sending mail
+  server_address: onurkanbakirci
+  server_port: hisim
+  secure: true
+  username: ""
+  password: ""
+  subject: ""
+  recepients: ""
+  from: ""
+  android_app_artifact_name: "Hi-SimuX-Debug"
+  android_management_app_artifact_name: "Hi-SimuX-Management-Debug"
+  
+jobs:
+  build:
+    name: Create Release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Changelog
+        uses: Bullrich/generate-release-changelog@master
+        id: Changelog
+        env:
+          REPO: ${{ github.repository }}
+
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
+          body: |
+            ${{ steps.Changelog.outputs.changelog }}
+          draft: false
+          prerelease: false
+
+      - name: Send deployments as email
+        uses: ./.github/workflows/composite/send-deployments-mail
+        with:
+          server-address: ""
+          server-port: ""
+          secure: ""
+          username: ""
+          password: ""
+          subject: ""
+          recepients: ""
+          from: ""
+          android-app-artifact-name: ""
+          android-management-app-artifact-name: ""

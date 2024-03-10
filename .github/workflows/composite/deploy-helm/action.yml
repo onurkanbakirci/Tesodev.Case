@@ -1,0 +1,43 @@
+name: "Deploy helm chart"
+description: "Deploy helm chart to helm repo"
+
+inputs:
+  repo:
+    description: "Destination repo for helm chart"
+    required: true
+  owner:
+    description: "Owner of the repo"
+    required: true
+  branch:
+    description: "Branch of helm charts"
+    required: false
+    default: main
+  target_dir:
+    description: "Directory to store charts"
+    required: true
+  index_dir:
+    description: "Directory of the index.yml file"
+    required: true
+  charts_directory:
+    description: "Directory of the charts"
+    required: true
+  token:
+    description: "Security Token"
+    required: true
+  charts_url:
+    description: "Url of the source of the helm charts repo"
+    required: true
+runs:
+  using: "composite"
+  steps:
+    - name: Publish Helm chart
+      uses: stefanprodan/helm-gh-pages@master
+      with:
+        token: ${{ inputs.token }}
+        owner: ${{ inputs.owner }}
+        repository: ${{ inputs.repo }}
+        branch: ${{ inputs.branch }}
+        target_dir: ${{inputs.target_dir}}
+        index_dir: ${{inputs.index_dir}}
+        charts_dir: ${{inputs.charts_directory}}
+        charts_url: ${{inputs.charts_url}}
