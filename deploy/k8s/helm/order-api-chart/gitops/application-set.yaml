@@ -1,0 +1,33 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: order-api
+spec:
+  generators:
+  - list:
+      elements:
+      - namespace: dev
+        url: https://kubernetes.default.svc
+      - namespace: stage
+        url: https://kubernetes.default.svc
+      - namespace: prod
+        url: https://kubernetes.default.svc
+  template:
+    metadata:
+      name: '{{namespace}}-order-api'
+    spec:
+      project: default
+      source:
+        repoURL: https://github.com/onurkanbakirci/tesodev.case.git
+        targetRevision: HEAD
+        path: deploy/k8s/helm/order-api-chart
+        helm:
+          releaseName: order-api
+          valueFiles:
+            - environments/{{namespace}}/values.yaml
+            - environments/{{namespace}}/version.yaml
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: '{{namespace}}'
+      syncPolicy:
+        automated:  {}

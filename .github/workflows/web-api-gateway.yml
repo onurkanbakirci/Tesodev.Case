@@ -1,4 +1,4 @@
-name: Order Api
+name: Web Api Gateway
 
 on:
   workflow_dispatch:
@@ -8,24 +8,19 @@ on:
       - main
 
     paths:
-      - src/Services/Order/**
-      - deploy/k8s/helm/order-api-chart/**
-      - .github/workflows/order-api.yml
+      - src/ApiGateways/WebApiGateway/Tesodev.Case.WebApiGateway/**
+      - deploy/k8s/helm/web-api-gateway-chart/**
+      - .github/workflows/web-api-gateway.yml
       - .github/workflows/composite/**
 
 env:
-  dotnet_version: 8.x
-
-  #For test process
-  test_project_path: tests/Tesodev.Case.Order.UnitTests/
-
   #For docker build process
   owner: onurkanbakirci
   repo: tesodev.case
   context: .
-  docker_file_path: src/Services/Order/Tesodev.Case.Order.API/Dockerfile
+  docker_file_path: src/ApiGateways/WebApiGateway/Tesodev.Case.WebApiGateway/Tesodev.Case.WebApiGateway/Dockerfile
   push: true
-  docker_image_tag: ghcr.io/onurkanbakirci/tesodev.case/order-api:1.0.0
+  docker_image_tag: ghcr.io/onurkanbakirci/tesodev.case/web-api-gateway:1.0.0
 
 jobs:
   test:
@@ -52,7 +47,7 @@ jobs:
     name: Build Docker Image
     runs-on: ubuntu-latest
     needs: test
-
+    
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
