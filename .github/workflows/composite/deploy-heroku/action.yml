@@ -1,0 +1,22 @@
+name: "Deploy to Heroku"
+description: "Deploy to Heroku"
+
+inputs:
+  token:
+    description: "Herou api key"
+    required: true
+  app_name:
+    description: "Owner of the repo"
+    required: true
+  mail:
+    description: "Heroku mail address"
+    required: true
+runs:
+  using: "composite"
+  steps:
+    - name: Deploy Docker Image
+      uses: akhileshns/heroku-deploy@v3.12.12
+      with:
+        heroku_api_key: ${{ inputs.token }}
+        heroku_app_name: ${{ inputs.app_name }}
+        heroku_email: ${{ inputs.mail }}
