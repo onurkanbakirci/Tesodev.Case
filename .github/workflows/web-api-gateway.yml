@@ -18,7 +18,7 @@ env:
   owner: onurkanbakirci
   repo: tesodev.case
   context: .
-  docker_file_path: src/ApiGateways/WebApiGateway/Tesodev.Case.WebApiGateway/Tesodev.Case.WebApiGateway/Dockerfile
+  docker_file_path: src/ApiGateways/WebApiGateway/Tesodev.Case.WebApiGateway/Dockerfile
   push: true
   docker_image_tag: ghcr.io/onurkanbakirci/tesodev.case/web-api-gateway:1.0.0
 
