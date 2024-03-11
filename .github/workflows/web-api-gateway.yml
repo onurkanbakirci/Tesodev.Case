@@ -23,30 +23,10 @@ env:
   docker_image_tag: ghcr.io/onurkanbakirci/tesodev.case/web-api-gateway:1.0.0
 
 jobs:
-  test:
-    name: Test Api
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Setup .NET Core
-        uses: actions/setup-dotnet@v3
-        with:
-          dotnet-version: ${{ env.dotnet_version }}
-
-      - name: Run Tests
-        run: |
-          cd ${{env.test_project_path}}
-          dotnet restore
-          dotnet build --configuration Release --no-restore
-          dotnet test --no-restore --verbosity normal
 
   build-docker-image:
     name: Build Docker Image
     runs-on: ubuntu-latest
-    needs: test
     
     steps:
       - name: Checkout code

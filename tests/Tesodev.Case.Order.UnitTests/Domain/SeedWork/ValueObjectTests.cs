@@ -1,3 +1,5 @@
+using Tesodev.Case.Order.Domain.SeedWork;
+
 namespace Tesodev.Case.Order.UnitTests.Domain.SeedWork;
 
 public class ValueObjectTests
