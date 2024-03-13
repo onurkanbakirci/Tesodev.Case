@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/onurkanbakirci/Tesodev.Case/compare/v1.0.0...v1.1.0) (2024-03-13)
+
+
+### Features
+
+* docs update, test updates and workflow logic updates ([cb9a78a](https://github.com/onurkanbakirci/Tesodev.Case/commit/cb9a78a6f2195703fd8a774cbff5b8701bcc0257))
+
 ## 1.0.0 (2024-03-13)
 
 
