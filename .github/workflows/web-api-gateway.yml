@@ -3,15 +3,9 @@ name: Web Api Gateway
 on:
   workflow_dispatch:
   workflow_call:
-  push:
-    branches:
-      - main
-
-    paths:
-      - src/ApiGateways/WebApiGateway/Tesodev.Case.WebApiGateway/**
-      - deploy/k8s/helm/web-api-gateway-chart/**
-      - .github/workflows/web-api-gateway.yml
-      - .github/workflows/composite/**
+  release:
+    types: 
+      - created
 
 env:
   #For docker build process
