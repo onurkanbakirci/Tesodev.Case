@@ -14,7 +14,7 @@ env:
   context: .
   docker_file_path: src/ApiGateways/WebApiGateway/Tesodev.Case.WebApiGateway/Dockerfile
   push: true
-  docker_image_tag: ghcr.io/onurkanbakirci/tesodev.case/web-api-gateway:1.0.0
+  docker_image_tag: ghcr.io/onurkanbakirci/tesodev.case/web-api-gateway
 
 jobs:
 
@@ -35,17 +35,17 @@ jobs:
           actor: ${{github.actor}}
           token: ${{secrets.GITHUB_TOKEN}}
 
-  deploy-to-heroku:
-    name: Deploy Docker Image
-    runs-on: ubuntu-latest
-    needs: build-docker-image
-    
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+  #deploy-to-heroku:
+  #  name: Deploy Docker Image
+  #  runs-on: ubuntu-latest
+  #  needs: build-docker-image
+  #  
+  #  steps:
+  #    - name: Checkout code
+  #      uses: actions/checkout@v2
 
-      - uses: ./.github/workflows/composite/deploy-heroku
-        with:
-          token: ${{ secrets.HEROKU_API_KEY }}
-          app_name: "tesodev-case"
-          mail: "onurkanbkrc@gmail.com"
+  #    - uses: ./.github/workflows/composite/deploy-heroku
+  #      with:
+  #        token: ${{ secrets.HEROKU_API_KEY }}
+  #        app_name: "tesodev-case"
+  #        mail: "onurkanbkrc@gmail.com"
