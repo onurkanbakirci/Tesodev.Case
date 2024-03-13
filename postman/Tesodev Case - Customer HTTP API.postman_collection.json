@@ -1,11 +1,10 @@
 {
 	"info": {
-		"_postman_id": "669d74ba-ce40-4e82-9cc9-0b8a7a0f6551",
+		"_postman_id": "61ac9e7e-5074-4b43-985c-9b045c705349",
 		"name": "Tesodev Case - Customer HTTP API",
 		"description": "The Customer HTTP API",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "13774688",
-		"_collection_link": "https://martian-water-938008.postman.co/workspace/hisim~fb66235b-b146-4a7f-a209-0722565652d2/collection/13774688-669d74ba-ce40-4e82-9cc9-0b8a7a0f6551?action=share&source=collection_link&creator=13774688"
+		"_exporter_id": "13774688"
 	},
 	"item": [
 		{
@@ -129,7 +128,7 @@
 														}
 													],
 													"cookie": [],
-													"body": "{\n  \"type\": \"<string>\",\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"detail\": \"<string>\",\n  \"instance\": \"<string>\",\n  \"incididunt35\": {},\n  \"magnae\": {},\n  \"laborum_89\": {},\n  \"irure_a2f\": {}\n}"
+													"body": "{\n  \"type\": \"<string>\",\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"detail\": \"<string>\",\n  \"instance\": \"<string>\",\n  \"consectetur_d\": {},\n  \"eiusmod08\": {},\n  \"aliquip95\": {}\n}"
 												}
 											]
 										},
@@ -242,7 +241,7 @@
 														}
 													],
 													"cookie": [],
-													"body": "{\n  \"type\": \"<string>\",\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"detail\": \"<string>\",\n  \"instance\": \"<string>\",\n  \"incididunt35\": {},\n  \"magnae\": {},\n  \"laborum_89\": {},\n  \"irure_a2f\": {}\n}"
+													"body": "{\n  \"type\": \"<string>\",\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"detail\": \"<string>\",\n  \"instance\": \"<string>\",\n  \"consectetur_d\": {},\n  \"eiusmod08\": {},\n  \"aliquip95\": {}\n}"
 												}
 											]
 										},
@@ -397,7 +396,7 @@
 														}
 													],
 													"cookie": [],
-													"body": "{\n  \"type\": \"<string>\",\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"detail\": \"<string>\",\n  \"instance\": \"<string>\",\n  \"incididunt35\": {},\n  \"magnae\": {},\n  \"laborum_89\": {},\n  \"irure_a2f\": {}\n}"
+													"body": "{\n  \"type\": \"<string>\",\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"detail\": \"<string>\",\n  \"instance\": \"<string>\",\n  \"consectetur_d\": {},\n  \"eiusmod08\": {},\n  \"aliquip95\": {}\n}"
 												}
 											]
 										}
@@ -492,7 +491,7 @@
 												}
 											],
 											"cookie": [],
-											"body": "{\n  \"type\": \"<string>\",\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"detail\": \"<string>\",\n  \"instance\": \"<string>\",\n  \"incididunt35\": {},\n  \"magnae\": {},\n  \"laborum_89\": {},\n  \"irure_a2f\": {}\n}"
+											"body": "{\n  \"type\": \"<string>\",\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"detail\": \"<string>\",\n  \"instance\": \"<string>\",\n  \"consectetur_d\": {},\n  \"eiusmod08\": {},\n  \"aliquip95\": {}\n}"
 										}
 									]
 								},
@@ -627,7 +626,7 @@
 												}
 											],
 											"cookie": [],
-											"body": "{\n  \"type\": \"<string>\",\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"detail\": \"<string>\",\n  \"instance\": \"<string>\",\n  \"incididunt35\": {},\n  \"magnae\": {},\n  \"laborum_89\": {},\n  \"irure_a2f\": {}\n}"
+											"body": "{\n  \"type\": \"<string>\",\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"detail\": \"<string>\",\n  \"instance\": \"<string>\",\n  \"consectetur_d\": {},\n  \"eiusmod08\": {},\n  \"aliquip95\": {}\n}"
 										}
 									]
 								}

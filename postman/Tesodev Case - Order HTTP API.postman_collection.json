@@ -1,11 +1,10 @@
 {
 	"info": {
-		"_postman_id": "ca059311-4571-4844-a683-2a1b3ff5db38",
+		"_postman_id": "61237ba3-98de-4bab-9676-ba90223edf73",
 		"name": "Tesodev Case - Order HTTP API",
 		"description": "The Order HTTP API",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "13774688",
-		"_collection_link": "https://martian-water-938008.postman.co/workspace/hisim~fb66235b-b146-4a7f-a209-0722565652d2/collection/13774688-ca059311-4571-4844-a683-2a1b3ff5db38?action=share&source=collection_link&creator=13774688"
+		"_exporter_id": "13774688"
 	},
 	"item": [
 		{
@@ -129,7 +128,7 @@
 														}
 													],
 													"cookie": [],
-													"body": "{\n  \"type\": \"<string>\",\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"detail\": \"<string>\",\n  \"instance\": \"<string>\"\n}"
+													"body": "{\n  \"type\": \"<string>\",\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"detail\": \"<string>\",\n  \"instance\": \"<string>\",\n  \"adipisicing_ac\": {}\n}"
 												}
 											]
 										},
@@ -242,7 +241,7 @@
 														}
 													],
 													"cookie": [],
-													"body": "{\n  \"type\": \"<string>\",\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"detail\": \"<string>\",\n  \"instance\": \"<string>\"\n}"
+													"body": "{\n  \"type\": \"<string>\",\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"detail\": \"<string>\",\n  \"instance\": \"<string>\",\n  \"adipisicing_ac\": {}\n}"
 												}
 											]
 										},
@@ -397,7 +396,7 @@
 														}
 													],
 													"cookie": [],
-													"body": "{\n  \"type\": \"<string>\",\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"detail\": \"<string>\",\n  \"instance\": \"<string>\"\n}"
+													"body": "{\n  \"type\": \"<string>\",\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"detail\": \"<string>\",\n  \"instance\": \"<string>\",\n  \"adipisicing_ac\": {}\n}"
 												}
 											]
 										}
@@ -492,7 +491,7 @@
 												}
 											],
 											"cookie": [],
-											"body": "{\n  \"type\": \"<string>\",\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"detail\": \"<string>\",\n  \"instance\": \"<string>\"\n}"
+											"body": "{\n  \"type\": \"<string>\",\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"detail\": \"<string>\",\n  \"instance\": \"<string>\",\n  \"adipisicing_ac\": {}\n}"
 										}
 									]
 								},
@@ -627,7 +626,7 @@
 												}
 											],
 											"cookie": [],
-											"body": "{\n  \"type\": \"<string>\",\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"detail\": \"<string>\",\n  \"instance\": \"<string>\"\n}"
+											"body": "{\n  \"type\": \"<string>\",\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"detail\": \"<string>\",\n  \"instance\": \"<string>\",\n  \"adipisicing_ac\": {}\n}"
 										}
 									]
 								}

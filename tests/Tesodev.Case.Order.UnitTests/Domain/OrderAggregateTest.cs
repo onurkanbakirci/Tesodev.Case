@@ -15,10 +15,9 @@ public class OrderAggregateTest
     {
         //Arrange
         var order = new Order.Domain.AggregatesModel.OrderAggregate.Order(Guid.NewGuid());
-        order.SetOrderProduct(_fixture.Create<Guid>(), _fixture.Create<string>(), _fixture.Create<string>(), _fixture.Create<double>(), -1);
 
         //Act - Assert
-        Assert.Throws<ArgumentNullException>(() => order);
+        Assert.Throws<ArgumentException>(() => order.SetOrderProduct(_fixture.Create<Guid>(), _fixture.Create<string>(), _fixture.Create<string>(), _fixture.Create<double>(), -1));
     }
 
     [Fact]
@@ -26,9 +25,8 @@ public class OrderAggregateTest
     {
         //Arrange
         var order = new Order.Domain.AggregatesModel.OrderAggregate.Order(Guid.NewGuid());
-        order.SetOrderProduct(_fixture.Create<Guid>(), _fixture.Create<string>(), _fixture.Create<string>(), -1, 1);
 
         //Act - Assert
-        Assert.Throws<ArgumentNullException>(() => order);
+        Assert.Throws<ArgumentException>(() => order.SetOrderProduct(_fixture.Create<Guid>(), _fixture.Create<string>(), _fixture.Create<string>(), -1, 1));
     }
 }
