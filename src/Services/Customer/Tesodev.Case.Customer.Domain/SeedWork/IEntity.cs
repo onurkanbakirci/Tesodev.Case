@@ -16,6 +16,9 @@ public abstract class Entity
         }
     }
 
+    public DateTime CreatedAt { get; protected set; }
+    public DateTime UpdatedAt { get; protected set; }
+
     public bool IsTransient()
     {
         return this.Id == default;

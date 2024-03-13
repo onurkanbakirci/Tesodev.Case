@@ -12,7 +12,7 @@ using Tesodev.Case.Order.Infrastructure;
 namespace Tesodev.Case.Order.Infrastructure.Migrations
 {
     [DbContext(typeof(OrderContext))]
-    [Migration("20240310131301_InitialMigration")]
+    [Migration("20240313220839_InitialMigration")]
     partial class InitialMigration
     {
         /// <inheritdoc />
@@ -30,6 +30,18 @@ namespace Tesodev.Case.Order.Infrastructure.Migrations
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("CreatedAt")
+                        .HasDefaultValueSql("NOW()");
+
+                    b.Property<DateTime>("UpdatedAt")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("UpdatedAt")
+                        .HasDefaultValueSql("NOW()");
 
                     b.Property<Guid>("_customerId")
                         .HasColumnType("uuid")

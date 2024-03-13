@@ -3,15 +3,9 @@ name: Customer Api
 on:
   workflow_dispatch:
   workflow_call:
-  push:
-    branches:
-      - main
-
-    paths:
-      - src/Services/Customer/**
-      - deploy/k8s/helm/customer-api-chart/**
-      - .github/workflows/customer-api.yml
-      - .github/workflows/composite/**
+  release:
+    types: 
+      - created
 
 env:
   dotnet_version: 8.x
@@ -25,7 +19,7 @@ env:
   context: .
   docker_file_path: src/Services/Customer/Tesodev.Case.Customer.API/Dockerfile
   push: true
-  docker_image_tag: ghcr.io/onurkanbakirci/tesodev.case/customer-api:1.0.0
+  docker_image_tag: ghcr.io/onurkanbakirci/tesodev.case/customer-api
 
 jobs:
   test:

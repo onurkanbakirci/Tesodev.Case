@@ -33,10 +33,19 @@ runs:
         username: ${{ inputs.actor }}
         password: ${{ inputs.token }}
 
+    - name: Extract metadata (tags, labels) for Docker
+      id: meta
+      uses: docker/metadata-action@v4
+      with:
+        images: ${{ inputs.tags }}
+        tags: |
+          type=semver,pattern={{version}}
+
     - name: Build ${{ inputs.tags }} image and push to registry
       uses: docker/build-push-action@v2
       with:
         context: ${{ inputs.context }}
         file: ${{ inputs.file }}
-        tags: ${{ inputs.tags }}
+        tags: ${{ steps.meta.outputs.tags }}
+        labels: ${{ steps.meta.outputs.labels }}
         push: ${{ inputs.push }}

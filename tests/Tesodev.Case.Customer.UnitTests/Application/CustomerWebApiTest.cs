@@ -1,6 +1,5 @@
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Localization;
 using Moq;
 using Tesodev.Case.Customer.API.Controllers.V1;
 using Tesodev.Case.Customer.Application.Dtos;

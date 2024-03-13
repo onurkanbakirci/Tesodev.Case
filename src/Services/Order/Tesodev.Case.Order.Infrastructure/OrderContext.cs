@@ -1,7 +1,6 @@
 using Tesodev.Case.Order.Domain.SeedWork;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage;
-using Tesodev.Case.Order.Domain.AggregatesModel.OrderAggregate;
 using Tesodev.Case.Order.Infrastructure.EntityConfigurations;
 using Tesodev.Case.Order.Infrastructure.Utilities.IoC;
 using Microsoft.Extensions.Configuration;

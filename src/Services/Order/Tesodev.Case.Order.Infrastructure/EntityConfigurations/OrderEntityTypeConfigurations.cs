@@ -31,6 +31,10 @@ public class OrderEntityTypeConfiguration : IEntityTypeConfiguration<Domain.Aggr
             .UsePropertyAccessMode(PropertyAccessMode.Field)
             .HasColumnName("Status");
 
+        orderConfiguration.Property(o => o.CreatedAt).HasColumnName("CreatedAt").HasDefaultValueSql("NOW()");
+
+        orderConfiguration.Property(o => o.UpdatedAt).HasColumnName("UpdatedAt").HasDefaultValueSql("NOW()");
+
         orderConfiguration.OwnsOne(o => o.Address, a =>
             {
                 a.Property(n => n.AddressLine);

@@ -6,7 +6,7 @@ public static class HostExtensions
 {
     public static async Task<IHost> Seed(this IHost host)
     {
-        var context = new CustomerContext()!;
+        var context = new CustomerContext();
         await context.Database.MigrateAsync();
 
         if (!context.Customers.Any())

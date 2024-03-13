@@ -21,6 +21,10 @@ public class CustomerEntityTypeConfigurations : IEntityTypeConfiguration<Domain.
             .UsePropertyAccessMode(PropertyAccessMode.Field)
             .HasColumnName("Name");
 
+        customerConfiguration.Property(o => o.CreatedAt).HasColumnName("CreatedAt").HasDefaultValueSql("NOW()");
+
+        customerConfiguration.Property(o => o.UpdatedAt).HasColumnName("UpdatedAt").HasDefaultValueSql("NOW()");
+
         customerConfiguration.OwnsOne(o => o.Address, a =>
             {
                 a.Property(n => n.AddressLine);

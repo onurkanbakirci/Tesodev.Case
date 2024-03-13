@@ -16,13 +16,11 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddControllers();
 
-// Register dependency resolvers
 builder.Services.AddDependencyResolvers(new ICoreModule[]
 {
     new CoreModule(),
 }, builder.Configuration);
 
-// Add automapper support
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 builder.Services.AddSwaggerGen(options =>
@@ -39,7 +37,6 @@ builder.Services.AddSwaggerGen(options =>
             });
         });
 
-// Add api versioning
 builder.Services.AddApiVersioning(v =>
 {
     v.DefaultApiVersion = new ApiVersion(1, 0);
@@ -50,7 +47,6 @@ builder.Services.AddApiVersioning(v =>
 
 var app = builder.Build();
 
-// Seed database
 app.Seed().Wait();
 
 if (app.Environment.IsDevelopment())

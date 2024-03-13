@@ -9,4 +9,26 @@ public class OrderAggregateTest
     {
         _fixture = new Fixture();
     }
+
+    [Fact]
+    public void Handle_throws_exception_when_quantity_not_valid()
+    {
+        //Arrange
+        var order = new Order.Domain.AggregatesModel.OrderAggregate.Order(Guid.NewGuid());
+        order.SetOrderProduct(_fixture.Create<Guid>(), _fixture.Create<string>(), _fixture.Create<string>(), _fixture.Create<double>(), -1);
+
+        //Act - Assert
+        Assert.Throws<ArgumentNullException>(() => order);
+    }
+
+    [Fact]
+    public void Handle_throws_exception_when_price_not_valid()
+    {
+        //Arrange
+        var order = new Order.Domain.AggregatesModel.OrderAggregate.Order(Guid.NewGuid());
+        order.SetOrderProduct(_fixture.Create<Guid>(), _fixture.Create<string>(), _fixture.Create<string>(), -1, 1);
+
+        //Act - Assert
+        Assert.Throws<ArgumentNullException>(() => order);
+    }
 }

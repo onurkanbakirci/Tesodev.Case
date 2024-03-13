@@ -3,15 +3,9 @@ name: Order Api
 on:
   workflow_dispatch:
   workflow_call:
-  push:
-    branches:
-      - main
-
-    paths:
-      - src/Services/Order/**
-      - deploy/k8s/helm/order-api-chart/**
-      - .github/workflows/order-api.yml
-      - .github/workflows/composite/**
+  release:
+    types: 
+      - created
 
 env:
   dotnet_version: 8.x
@@ -25,7 +19,7 @@ env:
   context: .
   docker_file_path: src/Services/Order/Tesodev.Case.Order.API/Dockerfile
   push: true
-  docker_image_tag: ghcr.io/onurkanbakirci/tesodev.case/order-api:1.0.0
+  docker_image_tag: ghcr.io/onurkanbakirci/tesodev.case/order-api
 
 jobs:
   test:

@@ -1,5 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Tesodev.Case.Order.Domain.AggregatesModel.OrderAggregate;
 using Tesodev.Case.Order.Infrastructure;
 
 namespace Tesodev.Case.Order.API.Extensions;
@@ -7,7 +6,7 @@ public static class HostExtensions
 {
     public static async Task<IHost> Seed(this IHost host)
     {
-        var context = new OrderContext()!;
+        var context = new OrderContext();
         await context.Database.MigrateAsync();
 
         if (!context.Orders.Any())
