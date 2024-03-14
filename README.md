@@ -2,10 +2,12 @@
 
 Bu proje, Tesodev Case uygulaması hakkında detaylar içerir.
 
+Uygulama .NET 8.0 versiyonu ile geliştirildi. Microservislere `CQRS` implement edildi. Veritabanı olarak `PostgreSQL` kullanıldı. ORM olarak EFCore kullanıldı. `Validation`, `Logging` vs. gereksinimleri `Cross Cutting Concerns` olarak projeye eklendi. Unit Testler `xUnit` kullanılarak yazıldı. Deployment için `GitHub Action` üzerinde `CI/CD` pipeline oluşturuldu.
+
 ## Contents
 - [Tesodev Case](#tesodev-case)
   - [Contents](#contents)
-  - [Başlarken](#başlarken)
+    - [Başlarken](#başlarken)
     - [Gereksinimler](#gereksinimler)
     - [Kurulum](#kurulum)
     - [Kullanım](#kullanım)
@@ -18,8 +20,9 @@ Bu proje, Tesodev Case uygulaması hakkında detaylar içerir.
       - [WebApiGateway](#webapigateway-1)
     - [Parameters](#parameters)
     - [Example Usage](#example-usage)
+    - [CI/CD](#cicd)
 
-## Başlarken
+### Başlarken
 
 Bu bölüm, projeyi yerel makinenizde çalıştırmak için gereken adımları içerir.
 
@@ -121,3 +124,8 @@ To add item to cart, send a POST request to `/api/v1/orders`.
 
 ```http
 POST /api/v1/orders/
+```
+
+### CI/CD
+
+Kod deposunda yapılan her değişiklik, GitHub Actions kullanılarak otomatik bir CI/CD sürecine dönüştürülmüştür. Bu süreçte, her değişiklik için otomatik olarak bir PR (Pull Request) oluşturulur. Bu PR, repository'nin yöneticisi tarafından gözden geçirilir ve main branch'e merge edilir. PR'nin merge edilmesi, Docker image'lerinin otomatik olarak oluşturulmasını tetikler aynı zamanda testler de yapılır. Oluşturulan her Docker image, otomatik olarak versiyonlanır ve GitHub Registry'e gönderilir. Bu süreç, kod değişikliklerini hızlı ve güvenilir bir şekilde dağıtmayı sağlayarak geliştirme sürecini optimize eder.
