@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.0](https://github.com/onurkanbakirci/Tesodev.Case/compare/v1.1.1...v1.2.0) (2024-03-14)
+
+
+### Features
+
+* grpc support added ([1bb5ed3](https://github.com/onurkanbakirci/Tesodev.Case/commit/1bb5ed32e85b0d5382a9137d7074ef06239af4cf))
+
 ## [1.1.1](https://github.com/onurkanbakirci/Tesodev.Case/compare/v1.1.0...v1.1.1) (2024-03-13)
 
 
