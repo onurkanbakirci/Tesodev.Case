@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.1](https://github.com/onurkanbakirci/Tesodev.Case/compare/v1.1.0...v1.1.1) (2024-03-13)
+
+
+### Bug Fixes
+
+* webapigateway workflow bug tagging ([8452c58](https://github.com/onurkanbakirci/Tesodev.Case/commit/8452c5874ef2d58321df0a5978a76e3e159f2f35))
+
 ## [1.1.0](https://github.com/onurkanbakirci/Tesodev.Case/compare/v1.0.0...v1.1.0) (2024-03-13)
 
 
