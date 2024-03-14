@@ -22,7 +22,7 @@ public class CustomerWebApiTest
         // Arrange
         _mediatorMock
             .Setup(x => x.Send(It.IsAny<GetCustomersQuery>(), It.IsAny<CancellationToken>()))
-            .ReturnsAsync(new SuccessResult<List<GetCustomerDto>>(new List<GetCustomerDto>()));
+            .ReturnsAsync(new SuccessDataResult<List<GetCustomerDto>>(new List<GetCustomerDto>()));
 
         // Act
         var customerController = new CustomerController(_mediatorMock.Object);
@@ -40,7 +40,7 @@ public class CustomerWebApiTest
         // Arrange
         _mediatorMock
             .Setup(x => x.Send(It.IsAny<GetCustomerByIdQuery>(), It.IsAny<CancellationToken>()))
-            .ReturnsAsync(new SuccessResult<GetCustomerDto>(new GetCustomerDto()));
+            .ReturnsAsync(new SuccessDataResult<GetCustomerDto>(new GetCustomerDto()));
 
         // Act
         var customerController = new CustomerController(_mediatorMock.Object);

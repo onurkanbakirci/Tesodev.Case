@@ -23,7 +23,7 @@ public class OrderWebApiTest
         // Arrange
         _mediatorMock
             .Setup(x => x.Send(It.IsAny<GetOrdersQuery>(), It.IsAny<CancellationToken>()))
-            .ReturnsAsync(new SuccessResult<List<GetOrderDto>>(new List<GetOrderDto>()));
+            .ReturnsAsync(new SuccessDataResult<List<GetOrderDto>>(new List<GetOrderDto>()));
 
         // Act
         var orderController = new OrderController(_mediatorMock.Object);
@@ -41,7 +41,7 @@ public class OrderWebApiTest
         // Arrange
         _mediatorMock
             .Setup(x => x.Send(It.IsAny<GetOrderByIdQuery>(), It.IsAny<CancellationToken>()))
-            .ReturnsAsync(new SuccessResult<GetOrderDto>(new GetOrderDto()));
+            .ReturnsAsync(new SuccessDataResult<GetOrderDto>(new GetOrderDto()));
 
         // Act
         var orderController = new OrderController(_mediatorMock.Object);
