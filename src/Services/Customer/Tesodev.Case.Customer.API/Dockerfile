@@ -6,6 +6,7 @@ EXPOSE 443
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
 
+COPY "src/BuildingBlocks/Protos/" "src/BuildingBlocks/Protos/"
 COPY "src/Services/Customer/Tesodev.Case.Customer.API/Tesodev.Case.Customer.API.csproj" "Services/Customer/Tesodev.Case.Customer.API/Tesodev.Case.Customer.API.csproj"
 COPY "src/Services/Customer/Tesodev.Case.Customer.Application/Tesodev.Case.Customer.Application.csproj" "Services/Customer/Tesodev.Case.Customer.Application/Tesodev.Case.Customer.Application.csproj"
 COPY "src/Services/Customer/Tesodev.Case.Customer.Domain/Tesodev.Case.Customer.Domain.csproj" "Services/Customer/Tesodev.Case.Customer.Domain/Tesodev.Case.Customer.Domain.csproj"
