@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.1](https://github.com/onurkanbakirci/Tesodev.Case/compare/v1.2.0...v1.2.1) (2024-03-14)
+
+
+### Bug Fixes
+
+* test error fix ([3f196bb](https://github.com/onurkanbakirci/Tesodev.Case/commit/3f196bb31a3c4fe16cdfaf6ef021c048537f8e7c))
+
 ## [1.2.0](https://github.com/onurkanbakirci/Tesodev.Case/compare/v1.1.1...v1.2.0) (2024-03-14)
 
 
