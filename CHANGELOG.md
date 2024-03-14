@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.3.0](https://github.com/onurkanbakirci/Tesodev.Case/compare/v1.2.1...v1.3.0) (2024-03-14)
+
+
+### Features
+
+* workflow removed ([7822dff](https://github.com/onurkanbakirci/Tesodev.Case/commit/7822dff21b76c5a5c582b38c829272a110872881))
+
+
+### Bug Fixes
+
+* dockerfile missing depncy ([a0ffb29](https://github.com/onurkanbakirci/Tesodev.Case/commit/a0ffb29ff87f3cfc46cf0a40d503d97f42e729ef))
+
 ## [1.2.1](https://github.com/onurkanbakirci/Tesodev.Case/compare/v1.2.0...v1.2.1) (2024-03-14)
 
 
