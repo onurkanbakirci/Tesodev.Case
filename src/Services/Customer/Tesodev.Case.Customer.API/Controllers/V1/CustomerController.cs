@@ -25,7 +25,7 @@ public class CustomerController : Controller
     [HttpGet]
     [Produces("application/json", "text/plain")]
     [Consumes("application/json", "text/plain")]
-    [ProducesResponseType(typeof(SuccessResult<List<GetCustomerDto>>), (int)HttpStatusCode.OK)]
+    [ProducesResponseType(typeof(SuccessDataResult<List<GetCustomerDto>>), (int)HttpStatusCode.OK)]
     [ProducesResponseType((int)HttpStatusCode.NotFound)]
     public async Task<IActionResult> GetCustomers()
     {
@@ -40,7 +40,7 @@ public class CustomerController : Controller
     [HttpGet("{id}")]
     [Produces("application/json", "text/plain")]
     [Consumes("application/json", "text/plain")]
-    [ProducesResponseType(typeof(SuccessResult<GetCustomerDto>), (int)HttpStatusCode.OK)]
+    [ProducesResponseType(typeof(SuccessDataResult<GetCustomerDto>), (int)HttpStatusCode.OK)]
     [ProducesResponseType((int)HttpStatusCode.NotFound)]
     public async Task<IActionResult> GetCustomerById([FromRoute] string id)
     {
@@ -56,7 +56,7 @@ public class CustomerController : Controller
     [HttpPost]
     [Produces("application/json", "text/plain")]
     [Consumes("application/json", "text/plain")]
-    [ProducesResponseType(typeof(Result<string>), (int)HttpStatusCode.OK)]
+    [ProducesResponseType(typeof(SuccessDataResult<GetCustomerDto>), (int)HttpStatusCode.OK)]
     [ProducesResponseType((int)HttpStatusCode.NotFound)]
     public async Task<IActionResult> AddCustomer([FromBody] AddCustomerCommand addCustomerCommand)
     {
@@ -71,7 +71,7 @@ public class CustomerController : Controller
     [HttpDelete("{id}")]
     [Produces("application/json", "text/plain")]
     [Consumes("application/json", "text/plain")]
-    [ProducesResponseType(typeof(Result<string>), (int)HttpStatusCode.OK)]
+    [ProducesResponseType(typeof(SuccessResult), (int)HttpStatusCode.OK)]
     [ProducesResponseType((int)HttpStatusCode.NotFound)]
     public async Task<IActionResult> DeleteCustomer([FromRoute] string id)
     {
@@ -86,7 +86,7 @@ public class CustomerController : Controller
     [HttpPut("{id}")]
     [Produces("application/json", "text/plain")]
     [Consumes("application/json", "text/plain")]
-    [ProducesResponseType(typeof(Result<string>), (int)HttpStatusCode.OK)]
+    [ProducesResponseType(typeof(SuccessDataResult<GetCustomerDto>), (int)HttpStatusCode.OK)]
     [ProducesResponseType((int)HttpStatusCode.NotFound)]
     public async Task<IActionResult> UpdateCustomer([FromRoute] string id, [FromBody] UpdateCustomerCommand updateCustomerCommand)
     {

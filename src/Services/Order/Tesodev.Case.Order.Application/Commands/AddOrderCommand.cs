@@ -3,8 +3,10 @@ using Tesodev.Case.Order.Application.Dtos;
 using Tesodev.Case.Order.Application.Utilities.Results;
 
 namespace Tesodev.Case.Order.Application.Commands;
-public class AddOrderCommand : IRequest<IResult<GetOrderDto>>
+public class AddOrderCommand : IRequest<IDataResult<GetOrderDto>>
 {
+    public string CustomerId { get; private set; }
+    
     public int ProductQuantity { get; private set; }
 
     public double ProductUnitPrice { get; private set; }
@@ -14,7 +16,7 @@ public class AddOrderCommand : IRequest<IResult<GetOrderDto>>
     public string ProductName { get; private set; }
 
     public string ProductImageUrl { get; private set; }
-    
+
     public string AddressLine { get; private set; }
 
     public string City { get; private set; }
@@ -23,8 +25,9 @@ public class AddOrderCommand : IRequest<IResult<GetOrderDto>>
 
     public int CityCode { get; private set; }
 
-    public AddOrderCommand(int productQuantity, double productUnitPrice, string productId, string productName, string productImageUrl, string addressLine, string city, string country, int cityCode)
+    public AddOrderCommand(string customerId, int productQuantity, double productUnitPrice, string productId, string productName, string productImageUrl, string addressLine, string city, string country, int cityCode)
     {
+        CustomerId = customerId;
         ProductQuantity = productQuantity;
         ProductUnitPrice = productUnitPrice;
         ProductId = productId;

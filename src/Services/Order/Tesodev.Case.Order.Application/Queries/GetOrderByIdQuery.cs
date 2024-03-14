@@ -4,7 +4,7 @@ using Tesodev.Case.Order.Application.Dtos;
 
 namespace Tesodev.Case.Order.Application.Queries;
 
-public class GetOrderByIdQuery : IRequest<IResult<GetOrderDto>>
+public class GetOrderByIdQuery : IRequest<IDataResult<GetOrderDto>>
 {
     public string Id { get; set; }
     public GetOrderByIdQuery(string id)

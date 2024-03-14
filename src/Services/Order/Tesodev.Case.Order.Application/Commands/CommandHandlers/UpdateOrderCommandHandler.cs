@@ -6,7 +6,7 @@ using Tesodev.Case.Order.Application.Utilities.Results;
 using Tesodev.Case.Order.Domain.AggregatesModel.OrderAggregate;
 
 namespace Tesodev.Case.Order.Application.Commands.CommandHandlers;
-public class UpdateOrderCommandHandler : IRequestHandler<UpdateOrderCommand, IResult<GetOrderDto>>
+public class UpdateOrderCommandHandler : IRequestHandler<UpdateOrderCommand, IDataResult<GetOrderDto>>
 {
     private readonly IOrderRepository _orderRepository;
     private readonly IMapper _mapper;
@@ -16,13 +16,13 @@ public class UpdateOrderCommandHandler : IRequestHandler<UpdateOrderCommand, IRe
         _mapper = mapper;
     }
 
-    public async Task<IResult<GetOrderDto>> Handle(UpdateOrderCommand request, CancellationToken cancellationToken)
+    public async Task<IDataResult<GetOrderDto>> Handle(UpdateOrderCommand request, CancellationToken cancellationToken)
     {
         var order = await _orderRepository.GetByIdAsync(new Guid(request.OrderId));
         _mapper.Map(request, order);
         _orderRepository.Update(order);
         await _orderRepository.UnitOfWork.SaveChangesAsync(cancellationToken);
         var mappedOrder = _mapper.Map<GetOrderDto>(order);
-        return new SuccessResult<GetOrderDto>(mappedOrder);
+        return new SuccessDataResult<GetOrderDto>(mappedOrder);
     }
 }

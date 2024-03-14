@@ -3,7 +3,7 @@ using Tesodev.Case.Order.Application.Dtos;
 using Tesodev.Case.Order.Application.Utilities.Results;
 
 namespace Tesodev.Case.Order.Application.Commands;
-public class UpdateOrderCommand : IRequest<IResult<GetOrderDto>>
+public class UpdateOrderCommand : IRequest<IDataResult<GetOrderDto>>
 {
     public string OrderId { get; set; }
     

@@ -6,7 +6,7 @@ using Tesodev.Case.Customer.Domain.AggregatesModel.CustomerAggregate;
 
 namespace Tesodev.Case.Customer.Application.Queries.Handlers;
 
-public class GetCustomerByIdQueryHandler : IRequestHandler<GetCustomerByIdQuery, IResult<GetCustomerDto>>
+public class GetCustomerByIdQueryHandler : IRequestHandler<GetCustomerByIdQuery, IDataResult<GetCustomerDto>>
 {
     private readonly ICustomerRepository _customerRepository;
     private readonly IMapper _mapper;
@@ -16,12 +16,12 @@ public class GetCustomerByIdQueryHandler : IRequestHandler<GetCustomerByIdQuery,
         _mapper = mapper;
     }
 
-    public async Task<IResult<GetCustomerDto>> Handle(GetCustomerByIdQuery request, CancellationToken cancellationToken)
+    public async Task<IDataResult<GetCustomerDto>> Handle(GetCustomerByIdQuery request, CancellationToken cancellationToken)
     {
-        var order = await _customerRepository.GetByIdAsync(new Guid(request.Id));
+        var customer = await _customerRepository.GetByIdAsync(new Guid(request.Id));
 
-        var mappedOrder = _mapper.Map<GetCustomerDto>(order);
+        var mappedCustomer = _mapper.Map<GetCustomerDto>(customer);
 
-        return new SuccessResult<GetCustomerDto>(mappedOrder);
+        return new SuccessDataResult<GetCustomerDto>(mappedCustomer);
     }
 }

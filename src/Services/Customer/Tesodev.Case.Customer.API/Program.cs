@@ -1,3 +1,6 @@
+using System.Net;
+using Microsoft.AspNetCore.Server.Kestrel.Core;
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Host
@@ -8,6 +11,14 @@ builder.Host
         builder.RegisterModule(new MediatorModule());
     });
 
+builder
+    .WebHost
+    .ConfigureKestrel(options =>
+    {
+        options.Listen(IPAddress.Any, 5002, o => o.Protocols = HttpProtocols.Http1AndHttp2);
+        options.Listen(IPAddress.Any, 5003, o => o.Protocols = HttpProtocols.Http2);
+    });
+
 builder.Services.AddCustomDbContext(builder.Configuration);
 
 builder.Services.AddEndpointsApiExplorer();
@@ -15,6 +26,8 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddControllers();
+
+builder.Services.AddGrpc();
 
 // Register dependency resolvers
 builder.Services.AddDependencyResolvers(new ICoreModule[]
@@ -59,6 +72,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseCustomExceptionMiddleware();
+
+app.MapGrpcService<CustomerGrpcService>();
 
 app.MapControllers();
 

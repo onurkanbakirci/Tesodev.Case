@@ -2,12 +2,12 @@
 
 namespace Tesodev.Case.Order.Application.Utilities.Results;
 
-public class Result<T> : IResult<T>
+public class Result : IResult
 {
-    public Result(bool success, T message)
-        : this(success)
+    [JsonConstructor]
+    public Result(bool success, string internalMessage) : this(success)
     {
-        Message = message;
+        InternalMessage = internalMessage;
     }
 
     public Result(bool success)
@@ -15,7 +15,7 @@ public class Result<T> : IResult<T>
         Success = success;
     }
 
-    [JsonPropertyName("result")]
     public bool Success { get; }
-    public T Message { get; }
+    public string Message { get; set; }
+    public string InternalMessage { get; set; }
 }

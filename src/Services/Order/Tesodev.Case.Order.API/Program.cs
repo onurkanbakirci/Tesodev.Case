@@ -1,3 +1,5 @@
+using Tesodev.Case.BuildingBlocks.Protos;
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Host
@@ -15,6 +17,8 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddControllers();
+
+builder.Services.AddCustomGrpc(builder.Configuration);
 
 builder.Services.AddDependencyResolvers(new ICoreModule[]
 {

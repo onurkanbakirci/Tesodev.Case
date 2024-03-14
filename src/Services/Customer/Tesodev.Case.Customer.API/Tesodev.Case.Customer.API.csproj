@@ -20,11 +20,24 @@
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning" Version="5.1.0" />
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.0-rc.1.23421.29" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+    <PackageReference Include="Grpc.Tools" Version="2.50.0">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Grpc.AspNetCore.Server" Version="2.49.0" />
+    <PackageReference Include="Grpc.Net.ClientFactory" Version="2.50.0" />
+    <PackageReference Include="Google.Protobuf" Version="3.21.9" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Tesodev.Case.Customer.Application\Tesodev.Case.Customer.Application.csproj" />
+    <ProjectReference
+      Include="..\Tesodev.Case.Customer.Application\Tesodev.Case.Customer.Application.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Protobuf CompileOutputs="false" ProtoRoot="..\..\..\BuildingBlocks\Protos\"
+      Generator="MSBuild:Compile" Include="..\..\..\BuildingBlocks\Protos\customergrpc.proto"
+      GrpcServices="Server" />
+  </ItemGroup>
 
 </Project>

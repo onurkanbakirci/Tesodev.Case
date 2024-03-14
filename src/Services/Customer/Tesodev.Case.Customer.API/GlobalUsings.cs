@@ -7,3 +7,4 @@ global using Microsoft.OpenApi.Models;
 global using Tesodev.Case.Customer.Application.DependencyResolvers; 
 global using Tesodev.Case.Customer.Infrastructure.Utilities.IoC;
 global using Tesodev.Case.Customer.API.Extensions;
+global using Tesodev.Case.Customer.API.Grpc;

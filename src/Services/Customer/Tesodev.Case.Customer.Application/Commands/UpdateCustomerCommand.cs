@@ -3,7 +3,7 @@ using Tesodev.Case.Customer.Application.Dtos;
 using Tesodev.Case.Customer.Application.Utilities.Results;
 
 namespace Tesodev.Case.Customer.Application.Commands;
-public class UpdateCustomerCommand : IRequest<IResult<GetCustomerDto>>
+public class UpdateCustomerCommand : IRequest<IDataResult<GetCustomerDto>>
 {
     public string CustomerId { get; set; }
 

@@ -1,7 +1,8 @@
 ﻿namespace Tesodev.Case.Order.Application.Utilities.Results;
 
-public interface IResult<out T>
+public interface IResult
 {
     bool Success { get; }
-    T Message { get; }
+    string Message { get; set; }
+    string InternalMessage { get; set; }
 }

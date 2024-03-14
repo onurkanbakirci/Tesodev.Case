@@ -5,7 +5,7 @@ using Tesodev.Case.Customer.Application.Utilities.Results;
 using Tesodev.Case.Customer.Domain.AggregatesModel.CustomerAggregate;
 
 namespace Tesodev.Case.Customer.Application.Commands.CommandHandlers;
-public class UpdateCustomerCommandHandler : IRequestHandler<UpdateCustomerCommand, IResult<GetCustomerDto>>
+public class UpdateCustomerCommandHandler : IRequestHandler<UpdateCustomerCommand, IDataResult<GetCustomerDto>>
 {
     private readonly ICustomerRepository _customerRepository;
     private readonly IMapper _mapper;
@@ -15,13 +15,13 @@ public class UpdateCustomerCommandHandler : IRequestHandler<UpdateCustomerComman
         _mapper = mapper;
     }
 
-    public async Task<IResult<GetCustomerDto>> Handle(UpdateCustomerCommand request, CancellationToken cancellationToken)
+    public async Task<IDataResult<GetCustomerDto>> Handle(UpdateCustomerCommand request, CancellationToken cancellationToken)
     {
         var customer = await _customerRepository.GetByIdAsync(new Guid(request.CustomerId));
         _mapper.Map(request, customer);
         _customerRepository.Update(customer);
         await _customerRepository.UnitOfWork.SaveChangesAsync(cancellationToken);
         var mappedCustomer = _mapper.Map<GetCustomerDto>(customer);
-        return new SuccessResult<GetCustomerDto>(mappedCustomer);
+        return new SuccessDataResult<GetCustomerDto>(mappedCustomer);
     }
 }

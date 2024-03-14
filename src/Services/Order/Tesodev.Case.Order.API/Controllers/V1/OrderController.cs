@@ -25,7 +25,7 @@ public class OrderController : Controller
     [HttpGet]
     [Produces("application/json", "text/plain")]
     [Consumes("application/json", "text/plain")]
-    [ProducesResponseType(typeof(SuccessResult<List<GetOrderDto>>), (int)HttpStatusCode.OK)]
+    [ProducesResponseType(typeof(SuccessDataResult<List<GetOrderDto>>), (int)HttpStatusCode.OK)]
     [ProducesResponseType((int)HttpStatusCode.NotFound)]
     public async Task<IActionResult> GetOrders()
     {
@@ -40,7 +40,7 @@ public class OrderController : Controller
     [HttpGet("{id}")]
     [Produces("application/json", "text/plain")]
     [Consumes("application/json", "text/plain")]
-    [ProducesResponseType(typeof(SuccessResult<GetOrderDto>), (int)HttpStatusCode.OK)]
+    [ProducesResponseType(typeof(SuccessDataResult<GetOrderDto>), (int)HttpStatusCode.OK)]
     [ProducesResponseType((int)HttpStatusCode.NotFound)]
     public async Task<IActionResult> GetOrderById([FromRoute] string id)
     {
@@ -56,7 +56,7 @@ public class OrderController : Controller
     [HttpPost]
     [Produces("application/json", "text/plain")]
     [Consumes("application/json", "text/plain")]
-    [ProducesResponseType(typeof(Result<string>), (int)HttpStatusCode.OK)]
+    [ProducesResponseType(typeof(SuccessDataResult<string>), (int)HttpStatusCode.OK)]
     [ProducesResponseType((int)HttpStatusCode.NotFound)]
     public async Task<IActionResult> AddOrder([FromBody] AddOrderCommand addOrderCommand)
     {
@@ -71,7 +71,7 @@ public class OrderController : Controller
     [HttpDelete("{id}")]
     [Produces("application/json", "text/plain")]
     [Consumes("application/json", "text/plain")]
-    [ProducesResponseType(typeof(Result<string>), (int)HttpStatusCode.OK)]
+    [ProducesResponseType(typeof(SuccessResult), (int)HttpStatusCode.OK)]
     [ProducesResponseType((int)HttpStatusCode.NotFound)]
     public async Task<IActionResult> DeleteOrder([FromRoute] string id)
     {
@@ -86,7 +86,7 @@ public class OrderController : Controller
     [HttpPut("{id}")]
     [Produces("application/json", "text/plain")]
     [Consumes("application/json", "text/plain")]
-    [ProducesResponseType(typeof(Result<string>), (int)HttpStatusCode.OK)]
+    [ProducesResponseType(typeof(SuccessDataResult<GetOrderDto>), (int)HttpStatusCode.OK)]
     [ProducesResponseType((int)HttpStatusCode.NotFound)]
     public async Task<IActionResult> UpdateOrder([FromRoute] string id, [FromBody] UpdateOrderCommand updateOrderCommand)
     {

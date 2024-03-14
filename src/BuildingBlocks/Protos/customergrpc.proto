@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+option csharp_namespace = "Tesodev.Case.BuildingBlocks.Protos";
+
+package CustomerGrpc;
+
+service CustomerGrpc {
+	rpc GetCustomerById(GetCustomerByIdGrpcRequest) returns (GetCustomerByIdGrpcResponse) {}
+}
+
+message GetCustomerByIdGrpcRequest {
+	string id = 1;
+}
+
+message GetCustomerByIdGrpcResponse {
+    string id = 1;
+    string name = 2;
+    string email = 3;
+}

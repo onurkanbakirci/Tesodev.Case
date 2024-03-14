@@ -4,7 +4,7 @@ using Tesodev.Case.Customer.Application.Dtos;
 
 namespace Tesodev.Case.Customer.Application.Queries;
 
-public class GetCustomerByIdQuery : IRequest<IResult<GetCustomerDto>>
+public class GetCustomerByIdQuery : IRequest<IDataResult<GetCustomerDto>>
 {
     public string Id { get; set; }
     public GetCustomerByIdQuery(string id)

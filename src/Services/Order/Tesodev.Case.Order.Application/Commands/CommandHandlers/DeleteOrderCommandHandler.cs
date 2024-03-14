@@ -4,7 +4,7 @@ using Tesodev.Case.Order.Application.Utilities.Results;
 using Tesodev.Case.Order.Domain.AggregatesModel.OrderAggregate;
 
 namespace Tesodev.Case.Order.Application.Commands.CommandHandlers;
-public class DeleteOrderCommandHandler : IRequestHandler<DeleteOrderCommand, IResult<bool>>
+public class DeleteOrderCommandHandler : IRequestHandler<DeleteOrderCommand, IResult>
 {
     private readonly IOrderRepository _orderRepository;
     public DeleteOrderCommandHandler(IOrderRepository orderRepository)
@@ -12,11 +12,11 @@ public class DeleteOrderCommandHandler : IRequestHandler<DeleteOrderCommand, IRe
         _orderRepository = orderRepository;
     }
 
-    public async Task<IResult<bool>> Handle(DeleteOrderCommand request, CancellationToken cancellationToken)
+    public async Task<IResult> Handle(DeleteOrderCommand request, CancellationToken cancellationToken)
     {
         var order = await _orderRepository.GetByIdAsync(new Guid(request.OrderId));
         _orderRepository.Delete(order);
         await _orderRepository.UnitOfWork.SaveChangesAsync(cancellationToken);
-        return new SuccessResult<bool>(true);
+        return new SuccessResult();
     }
 }

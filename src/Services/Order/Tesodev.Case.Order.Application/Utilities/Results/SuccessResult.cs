@@ -1,14 +1,12 @@
 ﻿namespace Tesodev.Case.Order.Application.Utilities.Results;
 
-public class SuccessResult<T> : Result<T>
+public class SuccessResult : Result
 {
-    public SuccessResult(T message)
-        : base(true, message)
+    public SuccessResult(string internalMessage) : base(true, internalMessage)
     {
     }
 
-    public SuccessResult()
-        : base(true)
+    public SuccessResult() : base(true)
     {
     }
 }

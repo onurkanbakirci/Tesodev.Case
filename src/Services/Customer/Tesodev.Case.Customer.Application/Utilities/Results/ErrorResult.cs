@@ -1,14 +1,12 @@
 ﻿namespace Tesodev.Case.Customer.Application.Utilities.Results;
 
-public class ErrorResult<T> : Result<T>
+public class ErrorResult : Result
 {
-    public ErrorResult(T message)
-        : base(false, message)
+   public ErrorResult(string internalMessage) : base(false, internalMessage)
     {
     }
 
-    public ErrorResult()
-        : base(false)
+    public ErrorResult() : base(false)
     {
     }
 }
